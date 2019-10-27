@@ -1,0 +1,6 @@
+earth:none+none
+water:none+none
+fire:none+none
+air:none+none
+obsidian:water+fire
+volcano:earth+fire
