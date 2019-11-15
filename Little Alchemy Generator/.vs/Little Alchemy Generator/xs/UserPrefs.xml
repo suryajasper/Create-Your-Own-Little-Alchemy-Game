@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{7F606B3D-A39B-68EB-D403-70D06B7D5E2F}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/dragAndDrop.cs">
+    <Files>
+      <File FileName="Assets/panelObject.cs" Line="26" Column="6" />
+      <File FileName="Assets/dragAndDrop.cs" Line="20" Column="38" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
