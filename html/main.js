@@ -43,12 +43,19 @@ function addNewElement(name, imgSrc) {
   }
   elementFields.push([textField, image]);
 
+  var viewAllButton = document.createElement("BUTTON");
+  viewAllButton.appendChild(document.createTextNode(" View Formulas "));
+  viewAllButton.addEventListener("click", function() {
+    openView(textField.value, formulaFields);
+  })
+
   var deleteButton = document.createElement("BUTTON");
   deleteButton.appendChild(document.createTextNode("Delete"));
   deleteButton.addEventListener("click", function () { fieldset.remove(); });
 
   fieldset.appendChild(input);
   fieldset.appendChild(textField);
+  fieldset.appendChild(viewAllButton);
   fieldset.appendChild(deleteButton);
   parent.appendChild(fieldset);
 }
@@ -68,6 +75,16 @@ function addNewFormula(e1, e2, r) {
   result.setAttribute("type", "text");
   var changeValues = function () {
     legendNode.textContent = element1.value.concat(" + ", element2.value, " = ", result.value);
+    var inputArr = [element1, element2, result];
+    elementNameArr = [];
+    for (var i = 0; i < elementFields.length; i++) {
+      elementNameArr.push(elementFields[i][0].value);
+    }
+    for (var i = 0; i < inputArr.length; i++) {
+      if (inputArr[i].value != "" && !elementNameArr.includes(inputArr[i].value)) {
+        addNewElement(inputArr[i].value, null);
+      }
+    }
   }
   element1.onchange = changeValues;
   element2.onchange = changeValues;
