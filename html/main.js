@@ -1,4 +1,4 @@
-document.getElementById("newElement").addEventListener("click", function() { addNewElement(null, null); });
+document.getElementById("newElement").addEventListener("click", function() { addNewElement(null, null, true); });
 document.getElementById("newFormula").addEventListener("click", function() { addNewFormula(null, null, null); });
 document.getElementById("download").addEventListener("click", Download_Data);
 
@@ -8,7 +8,7 @@ var elementFields = [];
 var formulaFields = [];
 var formulaParent = document.getElementById("FormulaParent");
 
-function addNewElement(name, imgSrc) {
+function addNewElement(name, imgSrc, isRoot) {
   var fieldset = document.createElement("fieldset");
 
   var legend = document.createElement("legend");
@@ -41,7 +41,14 @@ function addNewElement(name, imgSrc) {
   textField.onchange = function () {
     legendNode.textContent = textField.value;
   }
-  elementFields.push([textField, image]);
+
+  var rootElement = document.createElement("input");
+  rootElement.setAttribute("type", "checkbox");
+  rootElement.checked = isRoot;
+  var rootElementText = document.createElement("p");
+  rootElementText.appendChild(document.createTextNode("Root Element?"));
+
+  elementFields.push([textField, image, rootElement]);
 
   var viewAllButton = document.createElement("BUTTON");
   viewAllButton.appendChild(document.createTextNode(" View Formulas "));
@@ -55,6 +62,8 @@ function addNewElement(name, imgSrc) {
 
   fieldset.appendChild(input);
   fieldset.appendChild(textField);
+  fieldset.appendChild(rootElementText);
+  fieldset.appendChild(rootElement);
   fieldset.appendChild(viewAllButton);
   fieldset.appendChild(deleteButton);
   parent.appendChild(fieldset);
@@ -119,7 +128,7 @@ function addNewFormula(e1, e2, r) {
 function Download_Data() {
   var data = "element_div\n";
   for (var i = 0; i < elementFields.length; i++) {
-    data += elementFields[i][0].value + "<" + elementFields[i][1].src + "\n";
+    data += elementFields[i][0].value + "<" + elementFields[i][1].src + "<" + elementFields[i][2].checked.toString() + "\n";
   }
   data += "formula_div\n";
   for (var i = 0; i < formulaFields.length; i++) {
@@ -138,7 +147,7 @@ function Load_Data() {
 
     for (var i = 0; i < elements.length-1; i++) {
       var splitElements = elements[i].split("<");
-      addNewElement(splitElements[0], splitElements[1]);
+      addNewElement(splitElements[0], splitElements[1], splitElements[2] == "true");
     }
     for (var i = 0; i < formulas.length; i++) {
       var splitFormulas = formulas[i].split("+");

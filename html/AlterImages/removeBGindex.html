@@ -1,0 +1,50 @@
+<html>
+<head>
+  <title>Remove Backgrounds</title>
+</head>
+<link rel="stylesheet" href="removeBGlooks.css">
+<body>
+  <h1>Remove a color from your image</h1>
+
+  <fieldset>
+    <legend>
+      <h2>Select a file to edit</h2>
+    </legend>
+    <input id = "load" type = "file" tag = "selectedFile" name = "txt" onchange = "Load_Data()" multiple></input>
+  </fieldset>
+
+  <fieldset id = "remove RGB">
+    <legend>
+      <h2>Select an RGB value to remove</h2>
+    </legend>
+    <fieldset>
+      <h3>R</h3>
+      <input type = "number" id = "R" min = "0" max = "256">
+      <h3>G</h3>
+      <input type = "number" id = "G" min = "0" max = "256">
+      <h3>B</h3>
+      <input type = "number" id = "B" min = "0" max = "256">
+    </fieldset>
+    <br>
+    <fieldset>
+      <h3>RtoGoTo</h3>
+      <input type = "number" id = "Rto" min = "0" max = "256">
+      <h3>GtoGoTo</h3>
+      <input type = "number" id = "Gto" min = "0" max = "256">
+      <h3>BtoGoTo</h3>
+      <input type = "number" id = "Bto" min = "0" max = "256">
+    </fieldset>
+    <br>
+    <h3>Scale Of Values</h3>
+    <input type = "number" id = "scaleOfValues" min = "0" max = "256">
+  </fieldset>
+  <br>
+  <center>
+    <canvas id="canvas" width="0" height="0"></canvas>
+  </center>
+  <br>
+  <button id = "completeButton">Fix and Download</button>
+</body>
+<script src="https://www.marvinj.org/releases/marvinj-0.7.js"></script>
+<script src="removeBGcode.js" charset="utf-8"></script>
+</html>

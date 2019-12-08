@@ -1,21 +1,23 @@
-img {
-  max-width: 50px;
-  max-height: 50px;
-}
 body {
-  color: red;
+  background-color: black;
+  color: white;
   font-size: 18px;
-  background-color: rgb( 58, 58, 58 );
 }
-input {
-  display:block;
+canvas {
+  background-color: lightgray;
 }
-
 h1 {
+  color: lightgreen;
+}
+h2 {
   color: red;
 }
-
+h3 {
+  display: inline-block;
+  color: lightblue;
+}
 button {
+  margin: 10;
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
