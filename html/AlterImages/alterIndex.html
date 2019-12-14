@@ -1,0 +1,32 @@
+<html>
+<head>
+  <title>Convert to clipart</title>
+</head>
+<link rel="stylesheet" href="removeBGlooks.css">
+<body>
+  <h1>Convert Image to Clipart</h1>
+  <fieldset>
+    <legend>
+      <h2>Select a file</h2>
+    </legend>
+    <input id = "load" type = "file" tag = "selectedFile" name = "txt" onchange = "Load_Data()" multiple></input>
+  </fieldset>
+  <br>
+  <fieldset>
+    <legend>
+      <h2>Parameters</h2>
+    </legend>
+    <h3>Scale of drawing effect: </h3>
+    <input type = "number" min = "1" max = "255" id = "drawingScale">
+    <br>
+    <h3>Black and White: </h3>
+    <input type = "checkbox" id = "grayScale">
+  </fieldset>
+  <br>
+  <canvas id="canvas" width="100" height="100"></canvas>
+  <br>
+  <button id = "completeButton">Fix and Download</button>
+</body>
+<script src="https://www.marvinj.org/releases/marvinj-0.7.js"></script>
+<script src="convertToClipartCode.js" charset="utf-8"></script>
+</html>
