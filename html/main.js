@@ -8,6 +8,43 @@ var elementFields = [];
 var formulaFields = [];
 var formulaParent = document.getElementById("FormulaParent");
 
+function viewFormulas(elementName) {
+  var asElement = [];
+  var asResult = [];
+  var answer = "";
+  console.log("Element name: " + elementName);
+  for (var arr of formulaFields) {
+    console.log(arr);
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i].value == elementName) {
+        var str = (arr[0].value + "+" + arr[1].value + "=" + arr[2].value);
+        console.log("We found one bois: " + str);
+        if (i == 2) {
+          asResult.push(str);
+        }
+        else {
+          asElement.push(str);
+        }
+      }
+    }
+  }
+  for (var element of asElement) {
+    answer += element + "\n";
+  }
+  for (var result of asResult) {
+    answer += result + "\n";
+  }
+  return answer;
+}
+
+function makeButton(n) {
+  var button = document.createElement("a");
+  button.setAttribute("href", "#");
+  button.setAttribute("class", "glass");
+  button.appendChild(document.createTextNode(n));
+  return button;
+}
+
 function addNewElement(name, imgSrc, isRoot) {
   var fieldset = document.createElement("fieldset");
 
@@ -39,6 +76,7 @@ function addNewElement(name, imgSrc, isRoot) {
   textField.setAttribute("type", "text");
   textField.value = (name == null) ? "" : name;
   textField.onchange = function () {
+    textField.value = textField.value.toLowerCase();
     legendNode.textContent = textField.value;
   }
 
@@ -50,14 +88,16 @@ function addNewElement(name, imgSrc, isRoot) {
 
   elementFields.push([textField, image, rootElement]);
 
-  var viewAllButton = document.createElement("BUTTON");
-  viewAllButton.appendChild(document.createTextNode(" View Formulas "));
+  var viewAllButton = makeButton(" View Formulas ");
   viewAllButton.addEventListener("click", function() {
-    openView(textField.value, formulaFields);
-  })
+    var response = viewFormulas(textField.value);
+    console.log(response);
+    var lazy = document.createElement("p");
+    lazy.appendChild(document.createTextNode(response));
+    fieldset.appendChild(lazy);
+  });
 
-  var deleteButton = document.createElement("BUTTON");
-  deleteButton.appendChild(document.createTextNode("Delete"));
+  var deleteButton = makeButton("Delete");
   deleteButton.addEventListener("click", function () { fieldset.remove(); });
 
   fieldset.appendChild(input);
@@ -68,6 +108,7 @@ function addNewElement(name, imgSrc, isRoot) {
   fieldset.appendChild(deleteButton);
   parent.appendChild(fieldset);
 }
+
 function addNewFormula(e1, e2, r) {
   var fieldset = document.createElement("fieldset");
 
@@ -110,8 +151,7 @@ function addNewFormula(e1, e2, r) {
   var equals = document.createElement("p");
   equals.appendChild(document.createTextNode("  =  "));
 
-  var deleteButton = document.createElement("BUTTON");
-  deleteButton.appendChild(document.createTextNode("Delete"));
+  var deleteButton = makeButton("Delete");
   deleteButton.addEventListener("click", function () { fieldset.remove(); });
 
   fieldset.classList.add("my_div");
@@ -125,6 +165,7 @@ function addNewFormula(e1, e2, r) {
   formulaParent.appendChild(fieldset);
   $(".my_div p, .my_div input").css('display', 'inline-block');
 }
+
 function Download_Data() {
   var data = "element_div\n";
   for (var i = 0; i < elementFields.length; i++) {
@@ -136,6 +177,7 @@ function Download_Data() {
   }
   download("formulas_and_elements.txt", data);
 }
+
 function Load_Data() {
   var reader = new FileReader();
   reader.onload = function (e) {
@@ -156,6 +198,7 @@ function Load_Data() {
   };
   reader.readAsText(loadFile.files[0]);
 }
+
 function download(filename, text) {
 	var element = document.createElement('a');
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));

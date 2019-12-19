@@ -1,7 +1,3 @@
-img {
-  max-width: 50px;
-  max-height: 50px;
-}
 body {
   -webkit-animation: bodyAnim 25s ease infinite;
   background: linear-gradient(270deg, #000000, #230073);
@@ -15,19 +11,23 @@ body {
   100%{background-position:0% 50%}
 }
 canvas {
-  display: inline-block;
+  background-color: lightgray;
 }
 h1 {
+  background: -webkit-linear-gradient(#09bf00, #43e302);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+h2 {
   background: -webkit-linear-gradient(#af0000, #d90000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-p {
-  background: -webkit-linear-gradient(top left, #ffffff, #8ffff8);
+h3 {
+  display: inline-block;
+  background: -webkit-linear-gradient(#00cde5, #24e8ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: inline-block;
-  margin: 10;
 }
 button {
   margin: 10;
@@ -41,54 +41,6 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-}
-/*
-.container{
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
-}
-.container span{
-  text-transform: uppercase;
-  display: block;
-}
-.text1{
-  color: white;
-  font-size: 30px;
-  font-weight: 700;
-  letter-spacing: 8px;
-  margin-bottom: 20px;
-  position: relative;
-  background: black;
-  animation: text 3s 1;
-}
-.text2{
-  font-size: 30px;
-  color: #6ab04c;
-}
-
-@keyframes text {
-  0%{
-    color: black;
-    margin-bottom: -40px;
-  }
-  30%{
-    letter-spacing: 25px;
-    margin-bottom: -40px;
-  }
-  85%{
-    letter-spacing: 8px;
-    margin-bottom: -40px;
-  }
-}
-*/
-input {
-  padding-top: 20px;
-  border-radius: 3px;
   font-size: 16px;
 }
 .glass{
