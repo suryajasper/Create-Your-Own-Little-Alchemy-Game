@@ -3,10 +3,13 @@ document.getElementById("newFormula").addEventListener("click", function() { add
 document.getElementById("download").addEventListener("click", Download_Data);
 
 var loadFile = document.getElementById("load");
-var parent = document.getElementById("parent");
+
 var elementFields = [];
 var formulaFields = [];
+
+var parent = document.getElementById("parent");
 var formulaParent = document.getElementById("FormulaParent");
+
 
 function viewFormulas(elementName) {
   var asElement = [];
@@ -98,7 +101,7 @@ function addNewElement(name, imgSrc, isRoot) {
   });
 
   var deleteButton = makeButton("Delete");
-  deleteButton.addEventListener("click", function () { fieldset.remove(); });
+  deleteButton.addEventListener("click", function () { fieldset.remove(); refreshData(); });
 
   fieldset.appendChild(input);
   fieldset.appendChild(textField);
@@ -152,7 +155,7 @@ function addNewFormula(e1, e2, r) {
   equals.appendChild(document.createTextNode("  =  "));
 
   var deleteButton = makeButton("Delete");
-  deleteButton.addEventListener("click", function () { fieldset.remove(); });
+  deleteButton.addEventListener("click", function () { fieldset.remove(); refreshData(); });
 
   fieldset.classList.add("my_div");
 

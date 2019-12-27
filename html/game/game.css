@@ -1,0 +1,6 @@
+body {
+  background-image: linear-gradient(black, gray);
+}
+canvas {
+  background-color: white;
+}

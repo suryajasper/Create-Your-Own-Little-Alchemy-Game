@@ -106,6 +106,6 @@ input {
   font-size: 16px;
 }
 .glass:hover{
-  color: orange;
+  color: white;
 	background-image: linear-gradient(to bottom right, #5fed85, #47bf67);
 }
