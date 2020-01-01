@@ -5,8 +5,22 @@
 </head>
 <link rel="stylesheet" href="main.css">
 <body>
-  <a href="alterIndex.html" class="glass">Edit Images</a>
-  <a href="removeBGindex.html" class="glass">Remove Image Background</a>
+  <table>
+    <tr>
+      <td>
+        <div class="dropdown">
+          <button class="dropbtn">Image Editing</button>
+          <div class="dropdown-content">
+            <a href="alterIndex.html" class="glass">Edit Images</a>
+            <a href="removeBGindex.html" class="glass">Remove Image Background</a>
+          </div>
+        </div>
+      </td>
+      <td>
+        <a href="game/game.html" class = "glass"><image src = "images/preview.png" width = 40 height = 22></image></a>
+      </td>
+    </tr>
+  </table>
   <br>
   <a href="#" id = "download" class="glass">Download Data As Text File</a>
   <input id = "load" type = "file" tag = "selectedFile" name = "txt" onchange = "Load_Data()" multiple></input>

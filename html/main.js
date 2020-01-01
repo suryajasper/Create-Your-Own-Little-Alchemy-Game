@@ -10,6 +10,20 @@ var formulaFields = [];
 var parent = document.getElementById("parent");
 var formulaParent = document.getElementById("FormulaParent");
 
+function refreshData() {
+  elementFields = [];
+  for (var element of parent.children) {
+    ec = element.children;
+    console.log(ec);
+    //elementFields.push([ec[1], ec[3], ec[5]]);
+  }
+  formulaFields = [];
+  for (var formula of formulaParent.children) {
+    fc = formula.children;
+    console.log(fc);
+    //formulaFields.push([fc[1], fc[3], fc[5]]);
+  }
+}
 
 function viewFormulas(elementName) {
   var asElement = [];
